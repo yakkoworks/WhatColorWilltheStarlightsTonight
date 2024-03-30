@@ -1,3 +1,16 @@
+$(function(){
+	load();
+	$('#reload').click(function(){
+		load();
+	})
+
+	$('.colorCode').click(function () {
+		var color = this.innerHTML;
+		setClipBoard(color);
+		// alert(color);
+		// getBirthdayStar();
+	});
+});
 
 function getRandomHex(min, max) {
 	var rand = Math.random() * (max - min) + min;
@@ -11,13 +24,6 @@ function getColorCode() {
 	}
 	return colorCode;
 }
-// function getBirthdayStar(){
-// 	var today = new Date();
-// 	var month = String(today.getMonth() + 1).padStart(2, '0');
-// 	var day = String(today.getDate()).padStart(2, '0');
-// 	// alert(month);
-// 	// alert(day);
-// }
 
 function setClipBoard(data){
 	var e = document.createElement('textarea');
@@ -28,7 +34,7 @@ function setClipBoard(data){
   	e.remove();
 }
 
-$(function(){
+function load(){
 	var startColor = getColorCode();
 	var startColorCode = "#"+startColor;
 	var endColor = getColorCode();
@@ -42,7 +48,9 @@ $(function(){
 	
 	var node = document.getElementById("preview");
 	var output = document.getElementById('image');
-
+	if(output.children[0] != null) {
+		output.children[0].remove();
+	}
 	domtoimage.toPng(node,{width:1280,height:1280})
 	.then(function (dataUrl) {
         var img = new Image();
@@ -52,16 +60,4 @@ $(function(){
       .catch(function (error) {
         console.error('oops, something went wrong!', error);
     });
-
-	$('#reload').click(function(){
-		location.reload();
-	})
-
-	$('.colorCode').click(function () {
-		var color = this.innerHTML;
-		setClipBoard(color);
-		// alert(color);
-		// getBirthdayStar();
-	});
-
-});
+}
