@@ -35,7 +35,9 @@ $(function(){
 	var endColorCode = "#"+endColor;
 	var gradation = startColorCode+','+endColorCode;
 	$('#startColorCode').text(startColorCode);
+	$('#startColorCode').css('color',startColorCode);
 	$('#endColorCode').text(endColorCode);
+	$('#endColorCode').css('color',endColorCode);
 	$('#preview').css('background', 'linear-gradient('+gradation+')');
 	
 	var node = document.getElementById("preview");
