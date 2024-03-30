@@ -1,0 +1,26 @@
+#wrapper {
+	width: 500px;
+	text-align: center;
+	margin: 0 auto;
+}
+#preview {
+	/* display: none; */
+	margin: 0 auto;
+	width: 100%;
+	background-color: transparent;
+	/* border: 6px solid black; */
+	/* border-radius: 16px; */
+}
+img {
+	width: 500px;
+	height: 500px;
+} 
+
+@font-face {
+	font-family: 'MyFont';
+	src: url(./MPLUSRounded1c-Regular.ttf);
+}
+
+body {
+	font-family: MyFont;
+}
