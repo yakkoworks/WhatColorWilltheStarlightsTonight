@@ -35,23 +35,39 @@ function setClipBoard(data){
 }
 
 function load(){
-	var startColor = getColorCode();
-	var startColorCode = "#"+startColor;
-	var endColor = getColorCode();
-	var endColorCode = "#"+endColor;
-	var gradation = startColorCode+','+endColorCode;
-	$('#startColorCode').text(startColorCode);
-	$('#startColorCode').css('color',startColorCode);
-	$('#endColorCode').text(endColorCode);
-	$('#endColorCode').css('color',endColorCode);
+	var gradation = ""
+
+	// 色の数
+	const colorRadios = document.getElementsByName('colors');
+    const colorRadiosLen = colorRadios.length;
+    let colors = '';
+    for (let i = 0; i < colorRadiosLen; i++){
+        if (colorRadios.item(i).checked){
+            colors = colorRadios.item(i).value;
+        }
+    }
+	for(var i = 0;i<colors;i++){
+		var color = getColorCode();
+		var colorCode = '#'+color;
+		gradation+=colorCode+',';
+		var wrapper = document.getElementById("colorCodes");
+		let new_element = document.createElement('span');
+		new_element.textContent = colorCode;
+		new_element.style.color = colorCode;
+		wrapper.appendChild(new_element);
+	}
+	
+	gradation = gradation.slice(0, -1);
+	alert(gradation);
+
 
 	// グラデーションの種類
-	const radios = document.getElementsByName('type');
-    const radiosLen = radios.length;
+	const typeRadios = document.getElementsByName('type');
+    const typeRadiosLen = typeRadios.length;
     let checkValue = '';
-    for (let i = 0; i < radiosLen; i++){
-        if (radios.item(i).checked){
-            checkValue = radios.item(i).value;
+    for (let i = 0; i < typeRadiosLen; i++){
+        if (typeRadios.item(i).checked){
+            checkValue = typeRadios.item(i).value;
         }
     }
 	// $('#preview').css('background', 'linear-gradient('+gradation+')');

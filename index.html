@@ -23,11 +23,17 @@
 			<input type="radio" id="type-linear" name="type" value="linear" />
 			<label for="type-linear">線形</label>
 		</div>
+		<div>
+			<input type="radio" id="colors-two" name="colors" value="2" checked />
+			<label for="colors-two">2色</label>
+			<input type="radio" id="colors-three" name="colors" value="3" />
+			<label for="colors-three">3色</label>
+		</div>
 		<button id="reload" style="margin: 30px 0;">みにいく</button>
 		<div id="preview-area">
 			<div id="preview"></div>
 			<div id="image"></div>
-			<p><span id="startColorCode" class="colorCode"></span>／<span id="endColorCode"  class="colorCode"></span></p>
+			<div id="colorCodes"></div>
 		</div>
 	</div>
 </body>
