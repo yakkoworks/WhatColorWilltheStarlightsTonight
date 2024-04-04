@@ -27,3 +27,7 @@ body {
 	font-family: MyFont;
 	width: 100%;
 }
+#colorCodes :not(:last-child):after{
+	content: "／";
+	color: black;
+}

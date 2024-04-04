@@ -35,12 +35,16 @@ function setClipBoard(data){
 }
 
 function load(){
-	var gradation = ""
+	var gradation = "";
+    let colors = '';
 
 	// 色の数
 	const colorRadios = document.getElementsByName('colors');
     const colorRadiosLen = colorRadios.length;
-    let colors = '';
+	var wrapper = document.getElementById("colorCodes");
+	while (wrapper.firstChild) {
+	  wrapper.removeChild(wrapper.firstChild);
+	}	
     for (let i = 0; i < colorRadiosLen; i++){
         if (colorRadios.item(i).checked){
             colors = colorRadios.item(i).value;
@@ -50,7 +54,6 @@ function load(){
 		var color = getColorCode();
 		var colorCode = '#'+color;
 		gradation+=colorCode+',';
-		var wrapper = document.getElementById("colorCodes");
 		let new_element = document.createElement('span');
 		new_element.textContent = colorCode;
 		new_element.style.color = colorCode;
@@ -58,7 +61,7 @@ function load(){
 	}
 	
 	gradation = gradation.slice(0, -1);
-	alert(gradation);
+	alert(colors);
 
 
 	// グラデーションの種類
