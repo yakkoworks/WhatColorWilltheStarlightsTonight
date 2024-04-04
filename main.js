@@ -44,7 +44,18 @@ function load(){
 	$('#startColorCode').css('color',startColorCode);
 	$('#endColorCode').text(endColorCode);
 	$('#endColorCode').css('color',endColorCode);
-	$('#preview').css('background', 'linear-gradient('+gradation+')');
+
+	// グラデーションの種類
+	const radios = document.getElementsByName('type');
+    const radiosLen = radios.length;
+    let checkValue = '';
+    for (let i = 0; i < radiosLen; i++){
+        if (radios.item(i).checked){
+            checkValue = radios.item(i).value;
+        }
+    }
+	// $('#preview').css('background', 'linear-gradient('+gradation+')');
+	$('#preview').css('background', checkValue+'-gradient('+gradation+')');
 	
 	var node = document.getElementById("preview");
 	var output = document.getElementById('image');
