@@ -59,9 +59,7 @@ function load(){
 		new_element.style.color = colorCode;
 		wrapper.appendChild(new_element);
 	}
-	
 	gradation = gradation.slice(0, -1);
-	alert(colors);
 
 
 	// グラデーションの種類
