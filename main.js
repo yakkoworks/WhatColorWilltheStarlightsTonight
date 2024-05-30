@@ -57,6 +57,7 @@ function load(){
 		let new_element = document.createElement('span');
 		new_element.textContent = colorCode;
 		new_element.style.color = colorCode;
+		new_element.className = "colorCode";
 		wrapper.appendChild(new_element);
 	}
 	gradation = gradation.slice(0, -1);
